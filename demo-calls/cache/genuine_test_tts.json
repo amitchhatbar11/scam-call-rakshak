@@ -1,0 +1,131 @@
+{
+  "call": "genuine_test_tts.wav",
+  "entries": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon.",
+        "full_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon.",
+        "risk_score": 20,
+        "max_risk": 20,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main HDFC Bank ki branch se Priya bol rahi hoon"
+          }
+        ],
+        "warning_gu": "આ એક સામાન્ય બેંક કોલ જેવું લાગે છે. કોઈ પણ માહિતી આપતા પહેલા સાવધ રહો.",
+        "warning_hi": "यह एक सामान्य बैंक कॉल लग रही है। कोई भी जानकारी देने से पहले सावधान रहें।",
+        "warning_en": "This seems to be a normal bank call. Be careful before sharing any information."
+      }
+    },
+    {
+      "start": 4.0,
+      "end": 10.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "Aapki fixed deposit agle mahine mature ho rahi hai.",
+        "full_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon. Aapki fixed deposit agle mahine mature ho rahi hai.",
+        "risk_score": 20,
+        "max_risk": 20,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main HDFC Bank ki branch se Priya bol rahi hoon"
+          }
+        ],
+        "warning_gu": "આ એક સામાન્ય બેંક કોલ જેવું લાગે છે. કોઈ પણ માહિતી આપતા પહેલા સાવધ રહો.",
+        "warning_hi": "यह एक सामान्य बैंक कॉल लग रही है। कोई भी जानकारी देने से पहले सावधान रहें।",
+        "warning_en": "This seems to be a normal bank call. Be careful before sharing any information."
+      }
+    },
+    {
+      "start": 9.0,
+      "end": 15.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "Agar aap renew karna chahte hain, to kripya branch par aaye ya bank ke office",
+        "full_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon. Aapki fixed deposit agle mahine mature ho rahi hai. Agar aap renew karna chahte hain, to kripya branch par aaye ya bank ke office",
+        "risk_score": 10,
+        "max_risk": 20,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main HDFC Bank ki branch se Priya bol rahi hoon"
+          }
+        ],
+        "warning_gu": "આ એક સામાન્ય બેંક કોલ જેવું લાગે છે. કોઈ પણ માહિતી આપતા પહેલા સાવધ રહો.",
+        "warning_hi": "यह एक सामान्य बैंक कॉल लग रही है। कोई भी जानकारी देने से पहले सावधान रहें।",
+        "warning_en": "This seems to be a normal bank call. Be careful before sharing any information."
+      }
+    },
+    {
+      "start": 14.0,
+      "end": 20.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "al app mein dekh lijiye. Aur yaad rakhiye, koi bhi OTP ya",
+        "full_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon. Aapki fixed deposit agle mahine mature ho rahi hai. Agar aap renew karna chahte hain, to kripya branch par aaye ya bank ke office al app mein dekh lijiye. Aur yaad rakhiye, koi bhi OTP ya",
+        "risk_score": 10,
+        "max_risk": 20,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main HDFC Bank ki branch se Priya bol rahi hoon"
+          }
+        ],
+        "warning_gu": "આ એક સામાન્ય બેંક કોલ જેવું લાગે છે. કોઈ પણ માહિતી આપતા પહેલા સાવધ રહો.",
+        "warning_hi": "यह एक सामान्य बैंक कॉल लग रही है। कोई भी जानकारी देने से पहले सावधान रहें।",
+        "warning_en": "This seems to be a normal bank call. Be careful before sharing any information."
+      }
+    },
+    {
+      "start": 19.0,
+      "end": 25.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "OTP ya password phone par kisi ko mat bataiye. Dhanyavad, aapka din shubh ho.",
+        "full_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon. Aapki fixed deposit agle mahine mature ho rahi hai. Agar aap renew karna chahte hain, to kripya branch par aaye ya bank ke office al app mein dekh lijiye. Aur yaad rakhiye, koi bhi OTP ya OTP ya password phone par kisi ko mat bataiye. Dhanyavad, aapka din shubh ho.",
+        "risk_score": 5,
+        "max_risk": 20,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main HDFC Bank ki branch se Priya bol rahi hoon"
+          }
+        ],
+        "warning_gu": "આ એક સામાન્ય બેંક કોલ જેવું લાગે છે. કોઈ પણ માહિતી આપતા પહેલા સાવધ રહો.",
+        "warning_hi": "यह एक सामान्य बैंक कॉल लग रही है। कोई भी जानकारी देने से पहले सावधान रहें।",
+        "warning_en": "This seems to be a normal bank call. Be careful before sharing any information."
+      }
+    },
+    {
+      "start": 24.0,
+      "end": 25.22,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "",
+        "full_transcript": "Namaste, main HDFC Bank ki branch se Priya bol rahi hoon. Aapki fixed deposit agle mahine mature ho rahi hai. Agar aap renew karna chahte hain, to kripya branch par aaye ya bank ke office al app mein dekh lijiye. Aur yaad rakhiye, koi bhi OTP ya OTP ya password phone par kisi ko mat bataiye. Dhanyavad, aapka din shubh ho.",
+        "risk_score": 5,
+        "max_risk": 20,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main HDFC Bank ki branch se Priya bol rahi hoon"
+          }
+        ],
+        "warning_gu": "આ એક સામાન્ય બેંક કોલ જેવું લાગે છે. કોઈ પણ માહિતી આપતા પહેલા સાવધ રહો.",
+        "warning_hi": "यह एक सामान्य बैंक कॉल लग रही है। कोई भी जानकारी देने से पहले सावधान रहें।",
+        "warning_en": "This seems to be a normal bank call. Be careful before sharing any information."
+      }
+    }
+  ]
+}

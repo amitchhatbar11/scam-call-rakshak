@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="gu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Call Shield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Hind+Vadodara:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f7f3ec;
+      --surface: #ffffff;
+      --ink: #1d1b18;
+      --ink-soft: #5a554d;
+      --line: #e4ddd1;
+      --primary: #1f4e79;
+      --primary-ink: #ffffff;
+
+      --safe: #1e6b43;   --safe-bg: #e7f3ec;
+      --warn: #8a4b00;   --warn-bg: #fdf0dc;  --warn-line: #e8a33d;
+      --danger: #b3261e; --danger-dark: #8c1d17;
+
+      --radius: 18px;
+      --font: "Hind", "Hind Vadodara", "Noto Sans Gujarati", "Noto Sans Devanagari", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--font); font-size: 20px; line-height: 1.5;
+    }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 4px solid #f2b705; outline-offset: 3px; }
+    .hidden { display: none !important; }
+    svg { flex: none; }
+
+    /* ---------- header ---------- */
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      max-width: 760px; margin: 0 auto; padding: 20px 16px 8px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 26px; font-weight: 700; color: var(--primary); }
+    .langs { display: flex; background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 4px; }
+    .langs button {
+      border: 0; background: transparent; color: var(--ink); padding: 8px 14px; border-radius: 10px;
+      font-size: 18px; font-weight: 600; min-height: 48px;
+    }
+    .langs button[aria-pressed="true"] { background: var(--primary); color: var(--primary-ink); }
+
+    main { max-width: 760px; margin: 0 auto; padding: 8px 16px 40px; }
+
+    /* ---------- status card ---------- */
+    .status {
+      background: var(--surface); border: 3px solid var(--line); border-radius: var(--radius);
+      padding: 28px 28px 22px; margin-top: 12px;
+    }
+    .status-head { display: flex; align-items: center; gap: 16px; }
+    .status-icon {
+      width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+      background: #ece6dc; color: var(--ink-soft);
+    }
+    .status h1 { font-size: 34px; line-height: 1.2; margin: 0; font-weight: 700; }
+    .status .msg { font-size: 23px; margin: 16px 0 0; }
+
+    .scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 22px; }
+    .scale div {
+      border-radius: 10px; padding: 8px 6px 6px; text-align: center; font-size: 17px; font-weight: 600;
+      background: #f1ece4; color: #8d867b; border-top: 6px solid #ddd5c8;
+    }
+    .scale div.on-safe   { background: var(--safe-bg); color: var(--safe); border-top-color: var(--safe); }
+    .scale div.on-warn   { background: var(--warn-bg); color: var(--warn); border-top-color: var(--warn-line); }
+    .scale div.on-danger { background: #fbe4e2; color: var(--danger); border-top-color: var(--danger); }
+
+    .meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 14px; font-size: 17px; color: var(--ink-soft); }
+    .live-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--danger); margin-right: 8px; vertical-align: 1px; animation: blink 1.4s infinite; }
+    @keyframes blink { 50% { opacity: .25; } }
+    audio { width: 100%; margin-top: 18px; height: 48px; }
+
+    .call-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .call-actions button {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 64px; border-radius: 14px; font-size: 22px; font-weight: 700; border: 0;
+    }
+    .btn-hangup { background: var(--danger); color: #fff; }
+    .btn-helpline { background: #fff; color: var(--safe); border: 3px solid var(--safe) !important; }
+
+    /* state colours */
+    .status.is-listening .status-icon { background: #e3ebf4; color: var(--primary); }
+    .status.is-safe { border-color: var(--safe); }
+    .status.is-safe .status-icon { background: var(--safe-bg); color: var(--safe); }
+    .status.is-safe h1 { color: var(--safe); }
+    .status.is-warn { border-color: var(--warn-line); background: #fffaf2; }
+    .status.is-warn .status-icon { background: var(--warn-bg); color: var(--warn); }
+    .status.is-warn h1 { color: var(--warn); }
+    .status.is-danger { background: var(--danger); border-color: var(--danger-dark); color: #fff; }
+    .status.is-danger .status-icon { background: #fff; color: var(--danger); }
+    .status.is-danger .meta { color: #fde3e1; }
+    .status.is-danger .btn-hangup { background: #fff; color: var(--danger); }
+    .status.is-danger .btn-helpline { background: transparent; color: #fff; border-color: #fff !important; }
+    .status.is-danger .scale div { background: rgba(255,255,255,.12); color: #f7c9c5; border-top-color: rgba(255,255,255,.3); }
+    .status.is-danger .scale div.on-danger { background: #fff; color: var(--danger); border-top-color: #fff; }
+    .status.alarm { animation: alarm .6s 4; }
+    @keyframes alarm { 50% { background: var(--danger-dark); } }
+
+    /* ---------- big choices ---------- */
+    .choices { display: grid; gap: 14px; margin-top: 18px; }
+    .choice {
+      display: flex; align-items: center; gap: 18px; width: 100%; text-align: left;
+      background: var(--surface); color: var(--ink); border: 3px solid var(--line); border-radius: var(--radius);
+      padding: 20px 22px; min-height: 104px; cursor: pointer;
+    }
+    .choice:hover, .choice.dragover { border-color: var(--primary); }
+    .choice .ic { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; background: #e3ebf4; color: var(--primary); flex: none; }
+    .choice.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .choice.primary .ic { background: rgba(255,255,255,.16); color: #fff; }
+    .choice b { display: block; font-size: 26px; line-height: 1.2; }
+    .choice small { display: block; font-size: 18px; opacity: .8; margin-top: 4px; }
+    .choice input { display: none; }
+
+    .stop {
+      display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; margin-top: 18px;
+      min-height: 68px; border-radius: var(--radius); border: 3px solid var(--ink); background: var(--surface);
+      color: var(--ink); font-size: 24px; font-weight: 700;
+    }
+
+    /* ---------- what we heard ---------- */
+    .panel { background: var(--surface); border: 2px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin-top: 18px; }
+    .panel h2 { font-size: 22px; margin: 0 0 12px; }
+    .flags { list-style: none; margin: 0; padding: 0; }
+    .flags li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--line); }
+    .flags li:first-child { border-top: 0; padding-top: 0; }
+    .flags .ic { color: var(--danger); margin-top: 3px; }
+    .flags b { display: block; font-size: 21px; }
+    .flags q { display: block; color: var(--ink-soft); font-size: 18px; font-style: italic; }
+
+    details.panel summary { font-size: 20px; font-weight: 600; cursor: pointer; min-height: 32px; }
+    details.panel[open] summary { margin-bottom: 10px; }
+    .transcript { max-height: 320px; overflow-y: auto; font-size: 19px; }
+    .transcript p { margin: 0 0 10px; }
+    .transcript time { color: var(--ink-soft); font-size: 15px; margin-right: 10px; font-variant-numeric: tabular-nums; }
+
+    /* ---------- samples + settings ---------- */
+    .section-title { font-size: 18px; color: var(--ink-soft); font-weight: 600; margin: 34px 0 10px; }
+    .samples { display: grid; gap: 10px; }
+    .sample {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left;
+      background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 14px 18px; min-height: 64px;
+      color: var(--ink); font-size: 19px;
+    }
+    .sample:hover { border-color: var(--primary); }
+    .sample.active { border-color: var(--primary); box-shadow: inset 6px 0 0 var(--primary); }
+    .sample small { display: block; color: var(--ink-soft); font-size: 15px; }
+    .tag { font-size: 14px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .tag.ready { background: var(--safe-bg); color: var(--safe); }
+    .tag.new { background: #efe9df; color: var(--ink-soft); }
+    .settings { margin-top: 0; }
+    .settings label { display: flex; align-items: center; gap: 12px; min-height: 48px; font-size: 19px; }
+    .settings input[type="checkbox"] { width: 26px; height: 26px; accent-color: var(--primary); flex: none; }
+    .empty { color: var(--ink-soft); font-size: 18px; }
+
+    footer { text-align: center; color: var(--ink-soft); font-size: 17px; padding: 8px 16px 32px; }
+    footer a { color: var(--primary); }
+
+    @media (max-width: 520px) {
+      body { font-size: 19px; }
+      .status { padding: 22px 18px 18px; }
+      .status h1 { font-size: 28px; }
+      .status .msg { font-size: 21px; }
+      .status-icon { width: 52px; height: 52px; }
+      .call-actions { grid-template-columns: 1fr; }
+      .choice { padding: 16px; gap: 14px; }
+      .choice b { font-size: 23px; }
+      .langs button { padding: 8px 10px; font-size: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .status.alarm, .live-dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span data-t="brand"></span>
+    </div>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="gu">ગુજરાતી</button>
+      <button data-lang="hi">हिंदी</button>
+      <button data-lang="en">English</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="status" id="status" aria-live="assertive">
+      <div class="status-head">
+        <div class="status-icon" id="statusIcon"></div>
+        <h1 id="statusTitle"></h1>
+      </div>
+      <p class="msg" id="statusMsg"></p>
+
+      <div class="call-actions hidden" id="callActions">
+        <button class="btn-hangup" id="hangup">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.7 13.3a16 16 0 0 0 3.4 2.6l1.3-1.3a2 2 0 0 1 2.1-.4 12.8 12.8 0 0 0 2.8.7A2 2 0 0 1 22 17v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 9.9"/><path d="M22 2 2 22"/></svg>
+          <span data-t="hangUp"></span>
+        </button>
+        <button class="btn-helpline" id="helpline">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          <span data-t="call1930"></span>
+        </button>
+      </div>
+
+      <div class="scale" id="scale" aria-hidden="true">
+        <div data-level="SAFE" data-t="lvlSafe"></div>
+        <div data-level="SUSPICIOUS" data-t="lvlWarn"></div>
+        <div data-level="SCAM" data-t="lvlScam"></div>
+      </div>
+      <audio id="player" controls class="hidden"></audio>
+      <div class="meta"><span id="metaLeft"></span><span id="metaRight"></span></div>
+    </section>
+
+    <div class="choices" id="choices">
+      <button class="choice primary" id="micBtn">
+        <span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></svg></span>
+        <span><b data-t="listenTitle"></b><small data-t="listenSub"></small></span>
+      </button>
+      <label class="choice" id="drop">
+        <input type="file" id="fileInput" accept="audio/*,.wav,.mp3,.m4a,.ogg,.aac,.amr,.opus,.webm" />
+        <span class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3-3 3 3"/></svg></span>
+        <span><b data-t="uploadTitle"></b><small data-t="uploadSub"></small></span>
+      </label>
+    </div>
+
+    <button class="stop hidden" id="stopBtn">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+      <span data-t="stop"></span>
+    </button>
+
+    <section class="panel hidden" id="heard">
+      <h2 data-t="heardTitle"></h2>
+      <ul class="flags" id="flags"></ul>
+    </section>
+
+    <details class="panel hidden" id="transcriptBox">
+      <summary data-t="transcript"></summary>
+      <div class="transcript" id="transcript"></div>
+    </details>
+
+    <p class="section-title" data-t="samples"></p>
+    <div class="samples" id="calls"></div>
+
+    <p class="section-title" data-t="settings"></p>
+    <div class="panel settings">
+      <label><input type="checkbox" id="speak" checked /> <span data-t="speakAloud"></span></label>
+      <label><input type="checkbox" id="fresh" /> <span data-t="fresh"></span></label>
+    </div>
+  </main>
+
+  <footer><span data-t="footer"></span> · <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a></footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

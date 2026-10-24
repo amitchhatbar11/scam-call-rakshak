@@ -1,0 +1,26 @@
+# Secrets (keep .env.example committed)
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Raw recordings before ffmpeg conversion (commit the final demo-calls/*.wav)
+demo-calls/raw/
+
+# Recordings uploaded through the app (may be real, private calls) and their saved results
+demo-calls/uploads/
+demo-calls/cache/uploads_*.json
+
+# Editor / OS / local tooling
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# Node (if any tooling gets added)
+node_modules/

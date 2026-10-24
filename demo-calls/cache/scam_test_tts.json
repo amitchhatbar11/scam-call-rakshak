@@ -1,0 +1,301 @@
+{
+  "call": "scam_test_tts.wav",
+  "entries": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon.",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon.",
+        "risk_score": 30,
+        "max_risk": 30,
+        "verdict": "SAFE",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          }
+        ],
+        "warning_gu": "કોઈ અજાણી વ્યક્તિ પોલીસ હોવાનો દાવો કરે તો સાવધાન રહો. હજુ સુધી કોઈ શંકાસ્પદ વાત નથી, પણ સાવચેત રહો.",
+        "warning_hi": "कोई अनजान व्यक्ति पुलिस होने का दावा करे तो सावधान रहें। अभी तक कोई संदिग्ध बात नहीं हुई है, लेकिन सतर्क रहें।",
+        "warning_en": "Be careful if an unknown person claims to be police. Nothing suspicious has been heard yet, but please stay alert."
+      }
+    },
+    {
+      "start": 4.0,
+      "end": 10.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "aapke aadhar card se ek parcel bheja gaya hai jisme",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme",
+        "risk_score": 50,
+        "max_risk": 50,
+        "verdict": "SUSPICIOUS",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          }
+        ],
+        "warning_gu": "કોઈ અજાણી વ્યક્તિ પોલીસ હોવાનો દાવો કરીને તમારા આધાર કાર્ડ વિશે પૂછે તો સાવધાન રહો. પોલીસ ક્યારેય ફોન પર આવી માહિતી માંગતી નથી, ફોન કાપી નાખો.",
+        "warning_hi": "कोई अनजान व्यक्ति पुलिस होने का दावा करके आपके आधार कार्ड के बारे में पूछे तो सावधान रहें। पुलिस कभी फोन पर ऐसी जानकारी नहीं मांगती, फोन काट दें।",
+        "warning_en": "Be careful if someone claiming to be police asks about your Aadhaar card. Police never ask for such details over the phone; please hang up."
+      }
+    },
+    {
+      "start": 9.0,
+      "end": 15.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "drugs mile hain. aapke naam par arrest warrant jaari hua hai.",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme drugs mile hain. aapke naam par arrest warrant jaari hua hai.",
+        "risk_score": 90,
+        "max_risk": 90,
+        "verdict": "SCAM",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          },
+          {
+            "type": "THREAT",
+            "evidence": "aapke naam par arrest warrant jaari hua hai"
+          }
+        ],
+        "warning_gu": "આ એક છેતરપિંડી છે. પોલીસ ક્યારેય ફોન પર ધરપકડનું વોરંટ આપતી નથી. ફોન કાપી નાખો અને કોઈને પણ તમારી માહિતી આપશો નહીં.",
+        "warning_hi": "यह एक धोखाधड़ी है। पुलिस कभी फोन पर गिरफ्तारी का वारंट नहीं देती है। फोन काट दें और किसी को भी अपनी जानकारी न दें।",
+        "warning_en": "This is a scam. Police never issue arrest warrants over the phone. Hang up immediately and do not share any personal information."
+      }
+    },
+    {
+      "start": 14.0,
+      "end": 20.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "abhi turant video call par aaye, aap digital arrest mein hain.",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme drugs mile hain. aapke naam par arrest warrant jaari hua hai. abhi turant video call par aaye, aap digital arrest mein hain.",
+        "risk_score": 95,
+        "max_risk": 95,
+        "verdict": "SCAM",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          },
+          {
+            "type": "THREAT",
+            "evidence": "aapke naam par arrest warrant jaari hua hai"
+          },
+          {
+            "type": "URGENCY",
+            "evidence": "abhi turant"
+          },
+          {
+            "type": "VIDEO_CALL_CUSTODY",
+            "evidence": "video call par aaye, aap digital arrest mein hain"
+          }
+        ],
+        "warning_gu": "આ એક છેતરપિંડી છે. 'ડિજિટલ અરેસ્ટ' જેવું કંઈ હોતું નથી. ફોન કાપી નાખો અને 1930 પર કોલ કરો.",
+        "warning_hi": "यह एक धोखाधड़ी है। 'डिजिटल अरेस्ट' जैसी कोई चीज नहीं होती है। फोन काट दें और 1930 पर कॉल करें।",
+        "warning_en": "This is a scam. 'Digital arrest' does not exist. Hang up the call immediately and call 1930."
+      }
+    },
+    {
+      "start": 19.0,
+      "end": 25.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "mein hain. kisi ko mat batana aur call mat kaatna. verification ke liye",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme drugs mile hain. aapke naam par arrest warrant jaari hua hai. abhi turant video call par aaye, aap digital arrest mein hain. mein hain. kisi ko mat batana aur call mat kaatna. verification ke liye",
+        "risk_score": 98,
+        "max_risk": 98,
+        "verdict": "SCAM",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          },
+          {
+            "type": "THREAT",
+            "evidence": "aapke naam par arrest warrant jaari hua hai"
+          },
+          {
+            "type": "URGENCY",
+            "evidence": "abhi turant"
+          },
+          {
+            "type": "VIDEO_CALL_CUSTODY",
+            "evidence": "video call par aaye, aap digital arrest mein hain"
+          },
+          {
+            "type": "ISOLATION",
+            "evidence": "kisi ko mat batana aur call mat kaatna"
+          }
+        ],
+        "warning_gu": "આ એક છેતરપિંડી છે. પોલીસ ક્યારેય ફોન પર ધરપકડ કરતી નથી. ફોન કાપી નાખો અને 1930 પર કોલ કરો.",
+        "warning_hi": "यह एक धोखाधड़ी है। पुलिस कभी फोन पर गिरफ्तार नहीं करती है। फोन काट दें और 1930 पर कॉल करें।",
+        "warning_en": "This is a scam. Police never arrest anyone over a phone call. Hang up immediately and call 1930."
+      }
+    },
+    {
+      "start": 24.0,
+      "end": 30.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "verification ke liye apne bank khate ka sara paisa RBI safe account mein abhi transfer",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme drugs mile hain. aapke naam par arrest warrant jaari hua hai. abhi turant video call par aaye, aap digital arrest mein hain. mein hain. kisi ko mat batana aur call mat kaatna. verification ke liye verification ke liye apne bank khate ka sara paisa RBI safe account mein abhi transfer",
+        "risk_score": 100,
+        "max_risk": 100,
+        "verdict": "SCAM",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          },
+          {
+            "type": "THREAT",
+            "evidence": "aapke naam par arrest warrant jaari hua hai"
+          },
+          {
+            "type": "URGENCY",
+            "evidence": "abhi turant"
+          },
+          {
+            "type": "VIDEO_CALL_CUSTODY",
+            "evidence": "video call par aaye, aap digital arrest mein hain"
+          },
+          {
+            "type": "ISOLATION",
+            "evidence": "kisi ko mat batana aur call mat kaatna"
+          },
+          {
+            "type": "MONEY_REQUEST",
+            "evidence": "apne bank khate ka sara paisa RBI safe account mein abhi transfer"
+          }
+        ],
+        "warning_gu": "આ છેતરપિંડી છે, RBI પાસે કોઈ 'સેફ એકાઉન્ટ' હોતું નથી. તરત જ ફોન કાપી નાખો અને 1930 પર કોલ કરો.",
+        "warning_hi": "यह धोखाधड़ी है, RBI का कोई 'सेफ अकाउंट' नहीं होता है। तुरंत फोन काट दें और 1930 पर कॉल करें।",
+        "warning_en": "This is a scam, RBI has no 'safe account'. Hang up immediately and call 1930."
+      }
+    },
+    {
+      "start": 29.0,
+      "end": 35.0,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "abhi transfer kijiye. aapke phone par ek OTP aaya hoga, wo mujhe bataiye.",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme drugs mile hain. aapke naam par arrest warrant jaari hua hai. abhi turant video call par aaye, aap digital arrest mein hain. mein hain. kisi ko mat batana aur call mat kaatna. verification ke liye verification ke liye apne bank khate ka sara paisa RBI safe account mein abhi transfer abhi transfer kijiye. aapke phone par ek OTP aaya hoga, wo mujhe bataiye.",
+        "risk_score": 100,
+        "max_risk": 100,
+        "verdict": "SCAM",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          },
+          {
+            "type": "THREAT",
+            "evidence": "aapke naam par arrest warrant jaari hua hai"
+          },
+          {
+            "type": "URGENCY",
+            "evidence": "abhi turant"
+          },
+          {
+            "type": "VIDEO_CALL_CUSTODY",
+            "evidence": "video call par aaye, aap digital arrest mein hain"
+          },
+          {
+            "type": "ISOLATION",
+            "evidence": "kisi ko mat batana aur call mat kaatna"
+          },
+          {
+            "type": "MONEY_REQUEST",
+            "evidence": "apne bank khate ka sara paisa RBI safe account mein abhi transfer"
+          },
+          {
+            "type": "OTP_REQUEST",
+            "evidence": "aapke phone par ek OTP aaya hoga, wo mujhe bataiye"
+          }
+        ],
+        "warning_gu": "આ છેતરપિંડી છે. કોઈ પણ બેંક કે પોલીસ ક્યારેય OTP માંગતી નથી. તરત જ ફોન કાપી નાખો અને 1930 પર કોલ કરો.",
+        "warning_hi": "यह धोखाधड़ी है। कोई भी बैंक या पुलिस कभी OTP नहीं मांगती है। तुरंत फोन काट दें और 1930 पर कॉल करें।",
+        "warning_en": "This is a scam. No bank or police will ever ask for an OTP. Hang up immediately and call 1930."
+      }
+    },
+    {
+      "start": 34.0,
+      "end": 35.67,
+      "result": {
+        "language": "Hindi",
+        "chunk_transcript": "wo mujhe bataiye.",
+        "full_transcript": "Namaste, main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon. aapke aadhar card se ek parcel bheja gaya hai jisme drugs mile hain. aapke naam par arrest warrant jaari hua hai. abhi turant video call par aaye, aap digital arrest mein hain. mein hain. kisi ko mat batana aur call mat kaatna. verification ke liye verification ke liye apne bank khate ka sara paisa RBI safe account mein abhi transfer abhi transfer kijiye. aapke phone par ek OTP aaya hoga, wo mujhe bataiye. wo mujhe bataiye.",
+        "risk_score": 100,
+        "max_risk": 100,
+        "verdict": "SCAM",
+        "red_flags": [
+          {
+            "type": "AUTHORITY_CLAIM",
+            "evidence": "main Mumbai Police Cyber Cell se Inspector Sharma bol raha hoon"
+          },
+          {
+            "type": "PERSONAL_DATA",
+            "evidence": "aapke aadhar card se ek parcel bheja gaya hai"
+          },
+          {
+            "type": "THREAT",
+            "evidence": "aapke naam par arrest warrant jaari hua hai"
+          },
+          {
+            "type": "URGENCY",
+            "evidence": "abhi turant"
+          },
+          {
+            "type": "VIDEO_CALL_CUSTODY",
+            "evidence": "video call par aaye, aap digital arrest mein hain"
+          },
+          {
+            "type": "ISOLATION",
+            "evidence": "kisi ko mat batana aur call mat kaatna"
+          },
+          {
+            "type": "MONEY_REQUEST",
+            "evidence": "apne bank khate ka sara paisa RBI safe account mein abhi transfer"
+          },
+          {
+            "type": "OTP_REQUEST",
+            "evidence": "aapke phone par ek OTP aaya hoga, wo mujhe bataiye"
+          }
+        ],
+        "warning_gu": "આ છેતરપિંડી છે. પોલીસ ક્યારેય વીડિયો કોલ પર ધરપકડ કરતી નથી અને બેંક ક્યારેય OTP માંગતી નથી. તરત જ ફોન કાપી નાખો અને 1930 પર કોલ કરો.",
+        "warning_hi": "यह धोखाधड़ी है। पुलिस कभी वीडियो कॉल पर गिरफ्तार नहीं करती और बैंक कभी OTP नहीं मांगते। तुरंत फोन काट दें और 1930 पर कॉल करें।",
+        "warning_en": "This is a scam. Police never arrest over video calls and banks never ask for OTPs. Hang up immediately and call 1930."
+      }
+    }
+  ]
+}
